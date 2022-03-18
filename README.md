@@ -12,9 +12,9 @@ docker compose up -d
 You will be able to access it via browser
 
 # Details
-
+### Database
 The default password for the database is setted to "root", I suggest you to change it for security issues
-
+### Ports
 Ports used by the container:
 
 * Web Server
@@ -24,7 +24,7 @@ Ports used by the container:
 * MySQL
     * port: 3306
 
-# Folders
+### Folders
 This container is setted up to use the 
 ```
 ~/dev/htdocs/

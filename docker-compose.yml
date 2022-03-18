@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  web_server:
+    image: php:apache
+    container_name: ws
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ~/dev/htdocs:/var/www/html
+  db:
+    image: mariadb
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1

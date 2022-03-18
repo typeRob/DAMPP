@@ -1,5 +1,5 @@
 # DAMPP
-Dockerized Apache-Mysql-PHP-PHPMyAdmin
+Dockerized Apache-MariaDB-PHP-PHPMyAdmin
 
 This repo can be used to run a simple docker container for web development, using the Apache server contained in the PHP Docker image and the PHPMyAdmin image.
 
@@ -21,7 +21,7 @@ Ports used by the container:
     * port: 80
 * PHPMyAdmin 
     * port: 8080
-* MySQL
+* MariaDB
     * port: 3306
 
 ### Folders

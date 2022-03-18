@@ -20,6 +20,13 @@ You will be able to access it via browser
 * MySQL
     * port 3306
 
+# Folders
+This container is setted up to use the 
+```
+~/dev/htdocs/
+```
+folder as a volume, so you need to create a folder named "htdocs" in that position, or you can change it in the docker-compose.yml
+
 # Future Updates
 I'm gonna work on it to implement a custom Apache configuration file, in order to be able to set custom configs without entering the container CLI
 

@@ -11,14 +11,18 @@ docker compose up -d
 
 You will be able to access it via browser
 
-# Ports
+# Details
+
+The default password for the database is setted to "root", I suggest you to change it for security issues
+
+Ports used by the container:
 
 * Web Server
-    * port 80
+    * port: 80
 * PHPMyAdmin 
-    * port 8080
+    * port: 8080
 * MySQL
-    * port 3306
+    * port: 3306
 
 # Folders
 This container is setted up to use the 

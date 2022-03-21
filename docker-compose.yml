@@ -22,7 +22,7 @@ services:
     container_name: db
     restart: unless-stopped
     volumes:
-      - .conf/mysql:etc/mysql
+      - .conf/mysql:/etc/mysql
     ports:
       - 3306:3306
     environment:

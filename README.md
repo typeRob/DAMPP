@@ -4,14 +4,14 @@ Dockerized Apache-MariaDB-PHP-PHPMyAdmin
 This repo can be used to run a simple docker container for web development, using the Apache server contained in the PHP Docker image and the PHPMyAdmin image.
 
 # Usage
-I recently created a script that set up the Apache WebServer folder by the user input, to run it just start 
+I recently created a script that set up the Apache WebServer folder and the database root password by the user input, to run it just start 
 ```
 ./setup_start.sh
 ```
 
 If you are on a MacOS system, run the file specific for MacOS
 
-You will be asked to insert the absolute path of the folder you want to use as Apache default, then it's going to start the container
+You will be asked to insert the absolute path of the folder you want to use as Apache default and the root password for the database, then it's going to start the container
 
 If you want to configure yourself, just change the folder in the
 ```
@@ -26,7 +26,10 @@ You will be able to access it via browser
 
 # Details
 ### Database
-The default password for the database is setted to "root", I suggest you to change it for security issues
+The default password for the database is setted to "root", you can change it running the script or in the
+```
+docker-compose.yml
+```
 ### Ports
 Ports used by the container:
 
@@ -45,6 +48,9 @@ This container is setted up to use the
 Using the setup_start file you can insert the path you want to use, and then it's going to change it automatically.
 
 If you want, you can change it directly in the docker-compose.yml
+
+# Known issues
+At the moment when you log in the PhpMyAdmin page it will show you an error about "PhpMyAdmin" advanced storage not configured. Unfortunately is an issue with the official PhpMyAdmin image, and it can't be setted up automatically unless the use of some kind of workaround. When it's going to be solved I'll update the code. For now, just log in and press "See more", then press on the create database text, it'll do everything automatically.
 
 # Future Updates
 I'm gonna work on it to implement a custom Apache configuration file, in order to be able to set custom configs without entering the container CLI

@@ -9,5 +9,5 @@ docker volume create --driver local \
 --opt type=none \
 --opt device=$dev_path \
 --opt o=bind dev
-sed -i '.bak '"s+DB_ROOT_PASSWORD=.*+DB_ROOT_PASSWORD="$db_pw"+g" .env
+sed -i '.bak' "s+DB_ROOT_PASSWORD=.*+DB_ROOT_PASSWORD="$db_pw"+g" .env
 docker compose up -d

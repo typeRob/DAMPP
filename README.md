@@ -9,8 +9,6 @@ I recently created a script that set up the Apache WebServer folder and the data
 ./setup_start.sh
 ```
 
-If you are on a MacOS system, run the file specific for MacOS
-
 You will be asked to insert the absolute path of the folder you want to use as Apache default and the root password for the database, then it's going to start the container
 
 If you want to configure yourself, just change the folder in the
@@ -41,18 +39,10 @@ Ports used by the container:
     * port: 3306
 
 ### Folders
-This container is setted up to use the 
-```
-~/dev/htdocs/
-```
-Using the setup_start file you can insert the path you want to use, and then it's going to change it automatically.
-
-If you want, you can change it directly in the docker-compose.yml
+This container use a volume for Apache Web Server folder, you can specify the directory that is mounted inside the volume by starting the bash file.
+For configuration files, it mounts the .conf folder, so if you want to edit those files you can do it by going inside that folder.
 
 # Known issues
 At the moment when you log in the PhpMyAdmin page it will show you an error about "PhpMyAdmin" advanced storage not configured. Unfortunately is an issue with the official PhpMyAdmin image, and it can't be setted up automatically unless the use of some kind of workaround. When it's going to be solved I'll update the code. For now, just log in and press "See more", then press on the create database text, it'll do everything automatically.
-
-# Future Updates
-I'm gonna work on it to implement a custom Apache configuration file, in order to be able to set custom configs without entering the container CLI
 
 Roberto Fabietti, 2022

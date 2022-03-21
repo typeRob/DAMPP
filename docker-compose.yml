@@ -1,7 +1,14 @@
 version: '3.8'
+
+volumes:
+  htdocs:
+    external: true
+
 services:
   web_server:
     image: php:apache
+    env_file:
+      - .env
     container_name: ws
     build:
       context: .
@@ -10,7 +17,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ~/dev/htdocs:/var/www/html
+      - "${DEV_PATH}:/var/www/html"
   db:
     image: mariadb
     container_name: db

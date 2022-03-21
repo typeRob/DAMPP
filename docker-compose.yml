@@ -1,14 +1,12 @@
 version: '3.8'
 
 volumes:
-  htdocs:
+  dev:
     external: true
 
 services:
   web_server:
     image: php:apache
-    env_file:
-      - .env
     container_name: ws
     build:
       context: .
@@ -17,11 +15,14 @@ services:
     ports:
       - 80:80
     volumes:
-      - "${DEV_PATH}:/var/www/html"
+      - .conf/apache2:/etc/apache2
+      - dev:/var/www/html:consistent
   db:
     image: mariadb
     container_name: db
     restart: unless-stopped
+    volumes:
+      - .conf/mysql:etc/mysql
     ports:
       - 3306:3306
     environment:
@@ -30,6 +31,8 @@ services:
     image: phpmyadmin
     container_name: phpmyadmin
     restart: unless-stopped
+    volumes:
+      - .conf/phpmyadmin:/var/www/html
     ports:
       - 8080:80
     environment:

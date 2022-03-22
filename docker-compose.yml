@@ -3,6 +3,8 @@ version: '3.8'
 volumes:
   dev:
     external: true
+  mysql_data: 
+    external: true
 
 services:
   web_server:
@@ -22,7 +24,7 @@ services:
     container_name: db
     restart: unless-stopped
     volumes:
-      - .conf/mysql:/etc/mysql
+      - .conf/mysql:/var/lib/mysql
     ports:
       - 3306:3306
     environment:

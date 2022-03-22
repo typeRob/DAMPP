@@ -25,6 +25,7 @@ services:
     restart: unless-stopped
     volumes:
       - .conf/mysql:/var/lib/mysql
+      - dev:/home
     ports:
       - 3306:3306
     environment:

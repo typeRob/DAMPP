@@ -20,7 +20,7 @@ services:
       - .conf/apache2:/etc/apache2
       - dev:/var/www/html:consistent
   db:
-    image: mariadb
+    image: mariadb:10.7
     container_name: db
     restart: unless-stopped
     volumes:

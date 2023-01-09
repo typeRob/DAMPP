@@ -20,11 +20,11 @@ services:
       - .conf/apache2:/etc/apache2
       - dev:/var/www/html:consistent
   db:
-    image: mariadb:10.7
+    image: mysql
     container_name: db
     restart: unless-stopped
     volumes:
-      - .conf/mysql:/var/lib/mysql
+      #- .conf/mysql:/etc/mysql/conf.d
       - dev:/home
     ports:
       - 3306:3306

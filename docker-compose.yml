@@ -3,8 +3,6 @@ version: '3.8'
 volumes:
   dev:
     external: true
-  mysql_data: 
-    external: true
 
 services:
   web_server:
@@ -20,16 +18,15 @@ services:
       - .conf/apache2:/etc/apache2
       - dev:/var/www/html:consistent
   db:
-    image: mysql
+    image: mariadb
     container_name: db
     restart: unless-stopped
     volumes:
-      #- .conf/mysql:/etc/mysql/conf.d
-      - dev:/home
+      - .conf/mariadb:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin
@@ -37,8 +34,9 @@ services:
     volumes:
       - .conf/phpmyadmin:/var/www/html
     ports:
-      - 8080:80
+      - 8443:80
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}

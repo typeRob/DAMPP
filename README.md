@@ -28,15 +28,12 @@ Ports used by the container:
 * Web Server
     * port: 80
 * PHPMyAdmin 
-    * port: 8080
+    * port: 8443
 * MariaDB
     * port: 3306
 
 ### Folders
 This container use a volume for Apache Web Server folder, you can specify the directory that is mounted inside the volume by starting the bash file.
 For configuration files, it mounts the [configuration folder](.conf), so if you want to edit those files you can do it by going inside that folder.
-
-# Known issues
-* At the moment when you log in the PhpMyAdmin page it will show you an error about "PhpMyAdmin" advanced storage not configured. Unfortunately is an issue with the official PhpMyAdmin image, and it can't be setted up automatically unless the use of some kind of workaround. When it's going to be solved I'll update the code. For now, just log in and press "See more", then press on the create database text, it'll do everything automatically.
 
 Roberto Fabietti, 2022
